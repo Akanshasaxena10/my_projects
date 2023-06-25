@@ -98,12 +98,12 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1 
-        os.system('aplay music.ogg&')##toa dd sound with added & symbol so that everything will work together.
+        os.system('aplay qubodup-cfork-ccby3-jump.ogg&')##toa dd sound with added & symbol so that everything will work together.
         ####to reverse the ball from the top direction,by bouncing it back
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1 
-        os.system('aplay music.ogg&')   
+        os.system('aplay qubodup-cfork-ccby3-jump.ogg&')   
         ####to reverse the ball from the bottom direct    
     if ball.xcor() > 390:
         ball.goto(0,0)###from left  to center 
@@ -125,9 +125,9 @@ while True:
     if (ball.xcor() > 340 and ball.xcor() < 350) and  (ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40):
         ball.setx(340)
         ball.dx *= -1  
-        os.system('aplay music.ogg&') 
+        os.system('aplay qubodup-cfork-ccby3-jump.ogg&') 
         
     if (ball.xcor() < -340 and ball.xcor() > -350) and  (ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 40):
         ball.setx(-340)
         ball.dx *= -1 
-        os.system('aplay music.ogg&')    
+        os.system('aplay qubodup-cfork-ccby3-jump.ogg&')    
