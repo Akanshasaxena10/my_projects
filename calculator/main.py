@@ -1,6 +1,5 @@
 '''Imported library'''
 import kivy
-# kivy.require('2.2.1') 
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
