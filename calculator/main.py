@@ -86,4 +86,5 @@ if __name__ == "__main__":
     
     ######To convert this script into working application we need to convert this python script into an application
     ####Build-user another python library to convert
-    ####google colab
+    ####google colab-build dozer
+    ####convert the main.py file to application file
