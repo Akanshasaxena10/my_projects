@@ -8,16 +8,16 @@ from kivy.clock import CyClockBase, ClockEvent, FreeClockEvent
 
 '''created class'''
 class MainApp(App):#class
-    def build(self):#constructor
+    def build(self):#constructor-----defined all variables and functions
         ###creating variables
         self.operators = ['/','*','+','-']
-        self.last_was_operator = None
-        self.last_button = None
+        self.last_was_operator = None##default variable
+        self.last_button = None#default variable
        # self.icon = "calculator.png"
         '''To create screen'''       
-        main_layout = BoxLayout(orientation = 'vertical')
-        self.solution = TextInput(background_color = 'black',foreground_color = 'white' )
-        main_layout.add_widget(self.solution)
+        main_layout = BoxLayout(orientation = 'vertical')##to create a vertical box layout
+        self.solution = TextInput(background_color = 'black',foreground_color = 'red',multiline = False, halign = 'right',font_size = 55,readonly = True)###input screen to enter the numbers
+        main_layout.add_widget(self.solution)###adding screen into main layout as widget.
         '''buttons-created array[] with nested array[][]'''
         buttons = [
             ['7','8','9','/'],
@@ -50,7 +50,7 @@ class MainApp(App):#class
         
         return main_layout
         
-        '''Functions'''
+        '''Functions'''###defining the functions
     
     def on_button_press(self,instance):####creating a function so that each pressed number would appear on the solution screen.
         current = self.solution.text
@@ -60,9 +60,9 @@ class MainApp(App):#class
             self.solution.text = ''  
         else:##nested loop
             if current and (self.last_was_operator and button_text in self.operators):##condition1
-                return
+                return ####by default None if input number has another input in series
             elif current == '' and button_text in self.operators:##condition2
-                return
+                return###by default none if on clear screen input is an operator(+,*,-)
             else: ##condition3
                 new_text = current +button_text
                 self.solution.text = new_text   
@@ -72,13 +72,18 @@ class MainApp(App):#class
     def on_solution(self,instance):
         text  = self.solution.text  
         if text:
-            solution = str(eval(self.solution.text))
+            solution = str(eval(self.solution.text))###first eval---means evaluate the first value in string mode  then result in solution.
             self.solution.text = solution
         
                          
             
         
-'''To run the file created main''' 
+'''calling main to run the app''' 
 if __name__ == "__main__":
     app = MainApp()
     app.run() 
+    
+    
+    ######To convert this script into working application we need to convert this python script into an application
+    ####Build-user another python library to convert
+    ####google colab
