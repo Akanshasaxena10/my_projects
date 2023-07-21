@@ -95,7 +95,7 @@ signupLabel = Label(login_window,text='Do not have an account? ',font=('Open San
 signupLabel.place(x=620,y=480)
 
 '''Create an account button'''
-newaccountButton = Button(login_window,text='Create New Account.',font=('Open sans',9,'bold underline'),fg ='white',bg='firebrick1',activeforeground='blue',activebackground='white',
+newaccountButton = Button(login_window,text='Create New Account',font=('Open sans',9,'bold underline'),fg ='white',bg='firebrick1',activeforeground='blue',activebackground='white',
                      cursor='hand2',bd=0,width=18)
 newaccountButton.place(x=628,y=500)
 
