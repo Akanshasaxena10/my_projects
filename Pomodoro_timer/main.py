@@ -1,3 +1,5 @@
+
+##POMODORO is an italian concept for work and rest.
 import time
 import os
 
