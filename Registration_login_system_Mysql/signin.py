@@ -5,6 +5,11 @@ from PIL import Image,ImageTk##to convert jpg images to jpg to png format.##PYTH
 
 
 '''Functions'''
+'''sign up page link'''
+def signup_page():
+    login_window.destroy()
+    import signup
+
 '''To clear the field once input cursor is there'''
 def user_enter(event):###if username input is at username entry  then it will delete pre-written username.
     if usernameEntry.get() == 'UserName':
@@ -96,7 +101,7 @@ signupLabel.place(x=620,y=480)
 
 '''Create an account button'''
 newaccountButton = Button(login_window,text='Create New Account',font=('Open sans',9,'bold underline'),fg ='white',bg='firebrick1',activeforeground='blue',activebackground='white',
-                     cursor='hand2',bd=0,width=18)
+                     cursor='hand2',bd=0,width=18,command=signup_page)
 newaccountButton.place(x=628,y=500)
 
 
