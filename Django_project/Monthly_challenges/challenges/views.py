@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseNotFound,HttpResponseRedirect
 from django.urls import reverse
 
+
 monthly_challenges_variable = {
     "january":"Eat no rice for 3 months!",
     "february":"Walk for at least 20 minutes every day!",
@@ -10,14 +11,44 @@ monthly_challenges_variable = {
     "may" : "Don't forget to take your me time daily",
     "june" : "Travel plan for the next six months!",
     "july" : "Read one book this month!",
-    "august" : "Pease visit your relatives this month!",
+    "august" : "Please visit your relatives this month!",
     "september" :"This month complete the pending works!",
     "october" : "This is a festival month....Enjoy!",
     "november": "Try to list out all you completed,pending tasks!",
     "december" : "Make new plans for the new year and enjoy christmas!!!!!!!"                             
 }  
 
-
+def index(request):
+    # list_items=""
+    months=list(monthly_challenges_variable.keys())
+    
+    return render(request, "challenges/index.html",{
+        "month": months
+        })
+    
+    # for month in months:
+    #     capitalized_month = month.capitalize()
+    #     month_path =reverse("month-challenge",args=[month])
+    #     list_items += f"<li><a href=\"{month_path}\">{capitalized_month}</a></li>"
+    # response_data = f"<ul>{list_items}</ul>"
+    # return HttpResponse(response_data)
+    # """
+    # <ul>
+    #    <li><a> href="/challenges/january">January</a></li>
+    #    <li><a> href="/challenges/february">February</a></li>
+    #    <li><a> href="/challenges/march">March</a></li>
+    #    <li><a> href="/challenges/april">April</a></li>
+    #    <li><a> href="/challenges/may">May</a></li>
+    #    <li><a> href="/challenges/june">June</a></li>
+    #    <li><a> href="/challenges/july">July</a></li>
+    #    <li><a> href="/challenges/august">August</a></li>
+    #    <li><a> href="/challenges/september">September</a></li>
+    #    <li><a> href="/challenges/october">October</a></li>
+    #    <li><a> href="/challenges/november">November</a></li>
+    #    <li><a> href="/challenges/december">December</a></li>
+    #    </ul>
+    # """
+   
 
 def monthly_challenge_number(request,month):###if months are in numbers
     months = list(monthly_challenges_variable.keys())###converting a dictionary into list with inbuilt key function.
@@ -31,8 +62,13 @@ def monthly_challenge_number(request,month):###if months are in numbers
 def monthly_challenge(request,month):####dynamic function
     try:
         challenge_text = monthly_challenges_variable[month]
-        response_data = f"<h1>{challenge_text}</h1>"
-        return HttpResponse(response_data)
+        return render(request,"challenges/challenge.html",{
+            "text": challenge_text,
+            "month_name":month###to have dynamic response in templates
+        })
+        
+        # response_data = render_to_string("challenges/challenge.html")###we can replace it with render short cut
+        # return HttpResponse(response_data)
     except:
         return HttpResponseNotFound("<h1>This month is not supported!!!!</h1>")  
 # # Create your views here.
